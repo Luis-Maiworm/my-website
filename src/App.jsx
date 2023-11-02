@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+
+import Startpage from './pages/Startpage';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <a className="bg-slate-400" href="">Test</a>
+      <Router>
+        <body className="w-screen h-screen font-jet">
+          <NavBar/>
+            <main className="py-10 xl:px-side-spacing">
+              <Routes>
+                <Route path="/" element={<Startpage/>}/>
+              </Routes>
+            </main>
+          <Footer/>
+        </body>
+      </Router>
     </>
   )
 }
 
-export default App
+export default App;
