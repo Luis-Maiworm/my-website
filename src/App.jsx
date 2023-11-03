@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 import Startpage from './pages/Startpage';
 
-function App() {
+const App = () => {
 
   return (
     <>
@@ -16,6 +16,8 @@ function App() {
             <main className="py-10 xl:px-side-spacing">
               <Routes>
                 <Route path="/" element={<Startpage/>}/>
+                <Route path="/about" element={<Startpage/>}/>
+
               </Routes>
             </main>
           <Footer/>

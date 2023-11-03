@@ -1,6 +1,6 @@
 
 
-function Startpage() {
+const Startpage = () => {
     return(
         <>
             <div className="">Hey</div>
