@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
-import Startpage from './pages/Startpage';
+import { STARTPAGE, PAGES } from './context/Pages';
+
 
 const App = () => {
 
@@ -13,11 +14,14 @@ const App = () => {
       <Router>
         <body className="w-screen h-screen font-jet">
           <NavBar/>
-            <main className="py-10 xl:px-side-spacing">
+            <main className="py-10 px-side-spacing-sm xl:px-side-spacing-xl">
               <Routes>
-                <Route path="/" element={<Startpage/>}/>
-                <Route path="/about" element={<Startpage/>}/>
-
+                <Route path={STARTPAGE.link} element={STARTPAGE.pageElement}/>
+                {
+                  PAGES.map((page) => (
+                    <Route path={page.link} element={page.pageElement}></Route>
+                  ))
+                }
               </Routes>
             </main>
           <Footer/>

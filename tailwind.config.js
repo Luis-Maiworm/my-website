@@ -5,6 +5,7 @@ export default {
     extend: {
 
       fontFamily: {
+        inter: ['inter', 'serif'],
         jet: ['JetBrains Mono', 'monospace']
       },
       colors: {
@@ -21,7 +22,8 @@ export default {
         },
       },
       spacing: {
-        'side-spacing': '13rem',
+        'side-spacing-sm': '2rem',
+        'side-spacing-xl': '13rem',
       }
 
 

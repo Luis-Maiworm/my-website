@@ -4,19 +4,21 @@ const FooterElement = ({heading, list}) => {
 
     return(
         <>
-            <div>
-                <h2 className="text-bold mb-2">{heading}</h2>
-                <div className="flex flex-col">
+            <div className="max-w-[20rem]">
+                <h2 className="mb-8 text-sm font-semibold text-tx_dark uppercase">
+                    {heading}
+                </h2>
+                <ul className="flex flex-col text-gray-600 font-medium pr-28 gap-3">
                     {
                         list.map(
                             (element) => (
-                                <h3>
-                                    {element}
-                                </h3>
+                                <li className="">
+                                    <a href="/" className="hover:underline">{element}</a>
+                                </li>
                             )
                         )
                     }
-                </div>
+                </ul>
             </div>
         </>
     )
@@ -26,13 +28,13 @@ const FooterElement = ({heading, list}) => {
 const Footer = () => {
     return (
         <>
-            <footer className="w-full border-t-[1px] border-mix xl:px-side-spacing py-12">
-                <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-5 gap-2">
-                    <FooterElement heading="Heading 1" list={["Test", "Test2"]}/> 
-                    <FooterElement heading="Heading 2" list={["Noch", "Einer"]}/> 
-                    <FooterElement heading="Heading 3" list={["Was", "Anderes"]}/> 
-                    <FooterElement heading="Heading 4" list={["Aber", "Nicht"]}/> 
-                    <FooterElement heading="Heading 5" list={["Dich", "Für"]}/> 
+            <footer className="w-full border-t-[1px] border-mix py-12 px-side-spacing-sm xl:px-side-spacing">
+                <div className="flex justify-between">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+                        <FooterElement heading="Heading 1" list={["Test", "Test2"]}/> 
+                        <FooterElement heading="Heading 2" list={["Noch", "Einer"]}/> 
+                        <FooterElement heading="Heading 3" list={["Was", "Anderes"]}/> 
+                    </div>
                 </div>
             </footer>
         </>
