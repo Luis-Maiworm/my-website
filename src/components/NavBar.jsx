@@ -4,9 +4,8 @@ import { STARTPAGE, PAGES } from "../context/Pages"
 
 import { useState } from "react";
 
-import { Bs0Circle } from "react-icons/bs";
+import { AiFillAppstore } from "react-icons/ai";
 
-PAGES.unshift(STARTPAGE);
 
 
 const MenuButton = () => {
@@ -28,22 +27,33 @@ const NavBar = () => {
 
     window.addEventListener('scroll', changeColor);
 
-
     return(
         <>
-            <header className={`w-full bg-blue-50 z-50 p-8 top-0 left-0 sticky border-b-[1px] border-mix xl:px-side-spacing ${color ? 'bg-transparent' : ''}`}>
+            <header className={`w-full bg-white z-50  top-0 left-0 sticky max-h-18 xl:px-side-spacing transition-all ${color ? 'border-b-[0,5px] border-mix px-8 py-4 shadow-lg' : 'p-8'}`}>
                 <div className="flex flex-wrap items-center justify-between mx-auto">
-                    <div className="bg-blue-200 flex items-center rounded-md">
+                    <div className="flex items-center rounded-md">
                         <Link to="/" className="flex items-center p-2 whitespace-nowrap">
-                            <span>developedby _</span>
-                        </Link>
-                        <Bs0Circle className={`text-blue-500 ${color ? 'text-black' : ''}`}/>
+                            <AiFillAppstore className={`bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text w-12 h-auto ${color ? '' : ''}`}/>
+                            
+                            {
+                                color ? <span className="">developedby</span> : null
+                                    
+                            }
 
+                        </Link>
                     </div>
-                    <div className="bg-blue-200">
+                    <div className="">
                         <nav className="">
-                            <ul className="flex align-middle justify-between">
-                        
+                            <ul className="flex align-middle justify-between"> 
+                                
+                                {/**
+                                <li className="">
+                                    <Link to={STARTPAGE.link} className="px-3 py-4">
+                                        {STARTPAGE.name}   
+                                    </Link>
+                                </li>  
+                                 */}
+                                                     
                                 {   
                                     PAGES.map((page) => 
                                         <li className="">

@@ -13,6 +13,11 @@ export const PAGES = [
         name: "About",
         link: "/about",
         pageElement: <AboutPage/>
+    },
+    {
+        name: "Test",
+        link: "/Test",
+        pageElement: <AboutPage/>
     }
 ]
 
