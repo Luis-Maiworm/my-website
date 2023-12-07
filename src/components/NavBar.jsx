@@ -8,9 +8,29 @@ import { AiFillAppstore } from "react-icons/ai";
 
 
 
-const MenuButton = () => {
+const MenuButton = ({text}) => {
+
+    const [hover, setHover] = useState(false);
+
+
     return(
-        <>
+        <>{/**hover:[&:nth-child(2)]:translate-x-2**/}
+            <div className="group" onMouseEnter={ () => setHover(true)} onMouseLeave={() => setHover(false)}>
+                <span className="">
+                    &lt;
+                </span>
+                <span className={`${hover ? 'translate-x-1' : ''}`}>
+                    {text}
+                </span>
+                { hover ? 
+                    <span className="transition-opacity duration-500" onAnimationEnd={() => setHover(false)}>
+                        /
+                    </span> : null 
+                }
+                <span>
+                    &gt;
+                </span>
+            </div>
         </>
     )
 }
@@ -21,7 +41,7 @@ const NavBar = () => {
     const [color, setColor] = useState(false);
 
     const changeColor = () => { 
-        setColor(window.scrollY > 90);
+        setColor(window.scrollY > 40);
         console.log(color)
     }
 
@@ -29,7 +49,7 @@ const NavBar = () => {
 
     return(
         <>
-            <header className={`w-full bg-white z-50  top-0 left-0 sticky max-h-18 xl:px-side-spacing transition-all ${color ? 'border-b-[0,5px] border-mix px-8 py-4 shadow-lg' : 'p-8'}`}>
+            <header className={`w-full bg-white z-50  top-0 left-0 sticky max-h-18 xl:px-side-spacing-xl transition-all ${color ? 'border-b-[0,5px] border-mix py-8 shadow-lg' : ' py-8'}`}>
                 <div className="flex flex-wrap items-center justify-between mx-auto">
                     <div className="flex items-center rounded-md">
                         <Link to="/" className="flex items-center p-2 whitespace-nowrap">
@@ -56,13 +76,14 @@ const NavBar = () => {
                                                      
                                 {   
                                     PAGES.map((page) => 
-                                        <li className="">
-                                            <Link to={page.link} className="px-3 py-4">
+                                        <li className="px-3 py-4">
+                                            <Link to={page.link} className="">
                                                 {page.name}   
                                             </Link>
                                         </li>
                                     )    
                                 }
+                                <MenuButton text="text"/>
                             </ul>
                         </nav>
                     </div>

@@ -15,8 +15,8 @@ export const PAGES = [
         pageElement: <AboutPage/>
     },
     {
-        name: "Test",
-        link: "/Test",
+        name: "Skills",
+        link: "/skills",
         pageElement: <AboutPage/>
     }
 ]

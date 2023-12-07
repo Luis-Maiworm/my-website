@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <body className="w-screen h-screen font-jet">
+        <body className="w-full h-full font-jet">
           <NavBar/>
             <main className="py-10 px-side-spacing-sm xl:px-side-spacing-xl">
               <Routes>
