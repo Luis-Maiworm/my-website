@@ -52,6 +52,14 @@ const NavBar = () => {
 
     window.addEventListener('scroll', changeScrolled);
 
+    const NavbarLink = ({page}) => {
+        return(
+            <Link to={page.link} className="py-1 px-2 hover:bg-gray-200 rounded-md">
+                {page.name}   
+            </Link>
+        )
+    }
+
     return(
         <>
             <header className={`w-full bg-white dark:bg-black z-50 top-0 left-0 sticky max-h-18 px-side-spacing-sm xl:px-side-spacing-xl transition-all ${scrolled ? 'border-b-[0,5px] border-mix py-8 shadow-lg' : ' py-8'}`}>
@@ -73,19 +81,15 @@ const NavBar = () => {
                             <ul className="flex align-middle justify-between"> 
                                 
                                 {
-                                <li className="px-3 py-4">
-                                    <Link to={STARTPAGE.link} className="">
-                                        {STARTPAGE.name}   
-                                    </Link>
-                                </li>  
-                                 }
+                                    <li className="px-3 py-4">
+                                        <NavbarLink page={STARTPAGE}/>
+                                    </li>
+                                }
                                                      
                                 {   
                                     PAGES.map((page) => 
                                         <li className="px-3 py-4">
-                                            <Link to={page.link} className="">
-                                                {page.name}   
-                                            </Link>
+                                            <NavbarLink page={page}/>
                                         </li>
                                     )    
                                 }
