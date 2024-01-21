@@ -1,6 +1,7 @@
 
 import HomePage from "../pages/Home";
 import AboutPage from "../pages/About";
+import ProjectsPage from "../pages/Projects";
 
 export const STARTPAGE = {
     name: "Home",
@@ -15,9 +16,9 @@ export const PAGES = [
         pageElement: <AboutPage/>
     },
     {
-        name: "Skills",
-        link: "/skills",
-        pageElement: <AboutPage/>
+        name: "Projects",
+        link: "/projects",
+        pageElement: <ProjectsPage/>
     }
 ]
 
