@@ -6,12 +6,12 @@ import { useState } from "react";
 
 import { AiFillAppstore } from "react-icons/ai";
 
+import { useDarkMode } from "../hooks/useDarkMode";
 
 
 const MenuButton = ({text}) => {
 
     const [hover, setHover] = useState(false);
-
 
     return(
         <>{/**hover:[&:nth-child(2)]:translate-x-2**/}
@@ -39,6 +39,8 @@ const NavBar = () => {
     
 
     const [color, setColor] = useState(false);
+    //const [isDarkMode, toggleDarkMode] = useDarkMode();
+    //<div onClick={toggleDarkMode} className="w-4 h-4 bg-black"></div>
 
     const changeColor = () => { 
         setColor(window.scrollY > 40);
@@ -49,19 +51,20 @@ const NavBar = () => {
 
     return(
         <>
-            <header className={`w-full bg-white z-50  top-0 left-0 sticky max-h-18 xl:px-side-spacing-xl transition-all ${color ? 'border-b-[0,5px] border-mix py-8 shadow-lg' : ' py-8'}`}>
+            <header className={`w-full bg-white dark:bg-black z-50  top-0 left-0 sticky max-h-18 xl:px-side-spacing-xl transition-all ${color ? 'border-b-[0,5px] border-mix py-8 shadow-lg' : ' py-8'}`}>
                 <div className="flex flex-wrap items-center justify-between mx-auto">
                     <div className="flex items-center rounded-md">
                         <Link to="/" className="flex items-center p-2 whitespace-nowrap">
                             <AiFillAppstore className={`bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text w-12 h-auto ${color ? '' : ''}`}/>
                             
                             {
-                                color ? <span className="">developedby</span> : null
-                                    
+                                color ? <span className="">developedby</span> : null  
                             }
 
                         </Link>
+
                     </div>
+
                     <div className="">
                         <nav className="">
                             <ul className="flex align-middle justify-between"> 
