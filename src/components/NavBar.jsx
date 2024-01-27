@@ -60,6 +60,7 @@ const NavBar = () => {
         )
     }
 
+
     return(
         <>
             <header className={`w-full bg-white dark:bg-black z-50 top-0 left-0 sticky max-h-18 px-side-spacing-sm xl:px-side-spacing-xl transition-all ${scrolled ? 'border-b-[0,5px] border-mix py-8 shadow-lg' : ' py-8'}`}>
@@ -80,20 +81,30 @@ const NavBar = () => {
                     </div>
 
                     
+                    <div onClick={() => setNavVisible(!navIsVisible)} className={`flex flex-col sm:order-2 justify-center items-center py-2 px-2 hover:bg-gray-200 rounded-md cursor-pointer sm:hidden ${navIsVisible ? '' : ''}`}>
+                        <span className={`w-[30px] h-1 bg-black my-1 transition-all ${navIsVisible ? '' : 'translate-y-[10px] rotate-45'}`}></span>
+                        <span className={`w-[30px] h-1 bg-black my-1 transition-all ${navIsVisible ? '' : 'opacity-0'}`}></span>
+                        <span className={`w-[30px] h-1 bg-black my-1 transition-all ${navIsVisible ? '' : '-translate-y-[13.5px] -rotate-45'}`}></span>
+                    </div>
+
+
+
+                    
                         
-                            <div className={`sm:order-1 bg-slate-50 w-full sm:w-auto transition-all duration-500 ease-in -z-10  ${navIsVisible ? '' : '-translate-y-[300px]'}`}>
+                            <div className={`sm:order-1 bg-slate-50 w-full sm:w-auto transition-all duration-200 ease-in -z-10  ${navIsVisible ? '' : '-translate-y-[10px] opacity-0'}`}>
                                 <nav className="">
                                     <ul className="flex align-middle justify-between flex-col sm:flex-row"> 
                                         
                                         {
-                                            <li className="px-3 py-4">
+                                            <li className={`px-3 py-4 transition-all duration-700 ${navIsVisible ? '' : '-translate-y-[30px] opacity-0'}`}>
                                                 <NavbarLink page={STARTPAGE}/>
                                             </li>
                                         }
                                                             
                                         {   
                                             PAGES.map((page, i) => 
-                                                <li className="px-3 py-4" key={i}>
+                                            
+                                                <li className={`px-3 py-4 transition-all duration-700 ${navIsVisible ? '' : ''}`} key={i}>
                                                     <NavbarLink page={page}/>
                                                 </li>
                                             )    
