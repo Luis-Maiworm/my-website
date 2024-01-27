@@ -92,8 +92,8 @@ const NavBar = () => {
                                         }
                                                             
                                         {   
-                                            PAGES.map((page) => 
-                                                <li className="px-3 py-4">
+                                            PAGES.map((page, i) => 
+                                                <li className="px-3 py-4" key={i}>
                                                     <NavbarLink page={page}/>
                                                 </li>
                                             )    

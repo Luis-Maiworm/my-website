@@ -9,23 +9,29 @@ import { STARTPAGE, PAGES } from './context/Pages';
 
 const App = () => {
 
+  const Page = () => {
+    return(
+      <main className="py-10 px-side-spacing-sm xl:px-side-spacing-xl">
+        <Routes>
+          <Route path={STARTPAGE.link} element={STARTPAGE.pageElement}/>
+          {
+            PAGES.map((page, i) => (
+              <Route path={page.link} element={page.pageElement} key={i}></Route>
+            ))
+          }
+        </Routes>
+      </main>
+    )
+  }
+
   return (
     <>
       <Router>
-        <body className="w-full h-full font-jet">
+        <div className="w-full h-full font-jet">
           <NavBar/>
-            <main className="py-10 px-side-spacing-sm xl:px-side-spacing-xl">
-              <Routes>
-                <Route path={STARTPAGE.link} element={STARTPAGE.pageElement}/>
-                {
-                  PAGES.map((page) => (
-                    <Route path={page.link} element={page.pageElement}></Route>
-                  ))
-                }
-              </Routes>
-            </main>
+          <Page/>
           <Footer/>
-        </body>
+        </div>
       </Router>
     </>
   )
